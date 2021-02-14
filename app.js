@@ -57,14 +57,14 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
-
-  let item = sliders.indexOf(img);
+  const indexImg = sliders.indexOf(img);
+  let item = indexImg;
   if (item === -1) {
+    element.classList.add('added');
     sliders.push(img);
   } else {
-    sliders.pop(img)
-    element.classList.remove('added')
+    sliders.splice(indexImg,1);
+    element.classList.remove('added');
   }
 }
 var timer
