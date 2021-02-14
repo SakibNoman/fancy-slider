@@ -24,7 +24,10 @@
       </div>
       <button type="button" id="search-btn" class="btn btn-primary mb-2">Search</button>
     </div>
-    <section class="images">
+    <div class="d-flex justify-content-center"> 
+      <div id="spinner" class="spinner-border text-primary d-none" role="status"></div>
+    </div>
+    <section id="images-body" class="images">
       <div class="justify-content-around align-items-center mt-3 gallery-header mb-2">
         <h3 class="head-title text-center">Select image for create slider</h3>
         <div class="input-group col-md-3 mb-2 mb-md-0">
@@ -38,6 +41,7 @@
     </section>
     <!-- slider -->
     <div class="main">
+      
       <section class="mt-5" id="sliders">
 
       </section>
@@ -46,6 +50,10 @@
         <span class="dot" onclick="changeItem(1)"></span>
       </div>
     </div>
+  </div>
+  <!-- error display -->
+  <div id="error-display" class="d-none justify-content-center mt-5 text-secondary">
+      <h2 class="mt-5">No relevant item found!</h2>
   </div>
   <!-- Optional JavaScript -->
   <script src="./app.js"></script>
