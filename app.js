@@ -31,7 +31,7 @@ const showImages = (images) => {
 }
 
 //error display
-const errorDisplay = () =>{
+const errorDisplay = () => {
   document.getElementById("spinner").classList.add("d-none");
   document.getElementById("error-display").classList.add("d-flex");
   gallery.innerHTML = '';
@@ -42,13 +42,13 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => {
-      if(data.hits.length == 0){
+      if (data.hits.length == 0) {
         errorDisplay();
       }
-      else{
+      else {
         showImages(data.hits)
       }
-    } )
+    })
     .catch(err => {
       errorDisplay();
     })
@@ -63,7 +63,7 @@ const selectItem = (event, img) => {
     element.classList.add('added');
     sliders.push(img);
   } else {
-    sliders.splice(indexImg,1);
+    sliders.splice(indexImg, 1);
     element.classList.remove('added');
   }
 }
@@ -88,8 +88,8 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   let duration = document.getElementById('duration').value || 1000;
-  if (duration < 1000) {
-    duration = 1000;
+  if (duration < 1) {
+    duration = 500;
   }
   sliders.forEach(slide => {
     let item = document.createElement('div')
@@ -139,13 +139,13 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
 })
-document.getElementById("search").addEventListener("keypress",function(event){
-  if(event.key == "Enter"){
+document.getElementById("search").addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
     searchBtn.click();
   }
 })
-document.getElementById("duration").addEventListener("keypress",function(event){
-  if(event.key == "Enter"){
+document.getElementById("duration").addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
     sliderBtn.click();
   }
 })
